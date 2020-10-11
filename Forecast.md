@@ -8,13 +8,13 @@ Uma série temporal é composta por três componentes, como visto na figura abai
  - Sazonalidade
  - Ruído 
 
-![decAir](decAir.png)
+![decAir](./img/decAir.png)
 
 O componente de tendência indica se a nossa variável possui um movimento de crescimento ou decrescimento constante ao longo do tempo. Já a componente sazonal revela a presença de periodicidade do nosso fator de estudo; se analisarmos quantidade de compras mensal no Brasil ao longo dos anos por exemplo, veremos que em determinados meses com datas comemorativas, como natal, ano novo e dias das crianças, teremos um pico de vendas que se repete ano a ano. Por fim, o ruído corresponde a um evento puramente aleatório e não correlacionado, geralmente com distribuição normal de média zero e variância constante.
 
 Ciente da presença das três componentes supracitas de séries temporais, podemos modelar matematicamente cada uma delas. Para tanto é possível utilizar a classe de modelos chamada SARIMA (Seasonal Autoregressive Integrated Moving Average), cuja equação é apresentada abaixo. 
 
-![sarima](sarima.png)
+![sarima](./img/sarima.png)
 
 Para maiores informações a respeito da teoria desses modelos estatísticos de séries temporais recomendo as seguintes literaturas:
 
@@ -23,14 +23,14 @@ Para maiores informações a respeito da teoria desses modelos estatísticos de 
 > Autor: Juliana Garcia Cespedes
 > Tipo: TCC
 
-![capaTCC](capaTCC.png)
+![capaTCC](./img/capaTCC.png)
 
 > Título: Analise de Series Temporais
 > Autor: Pedro Alberto Morettin
 > Autor: Clelia M. C. Toloi
 > Tipo: Livro
 
-![capaLivro](capaLivro.png)
+![capaLivro](./img/capaLivro.png)
 
 # Código de modelagem sarima automatizada com grid search
 
@@ -116,7 +116,7 @@ Os dados estão organizados numa estrutura de pandas com as datas como index e u
 |1958-08-01|314.95|
 |1958-09-01|313.5|
 
-![co2Data](co2Data.png)
+![co2Data](./img/co2Data.png)
 
 __Set Hiperparameters__
 Para ajustar um modelo SARIMA aos dados são necessários alguns parâmetros
@@ -149,7 +149,7 @@ Existem formas visuais de se determinar os melhores valores dos parâmetros desc
 __Fit Model__
 Uma vez definido quais os melhores parâmetros podemos ajustar o modelo com esses parâmetros e checar a partir de gráfico de resíduos se o modelo atende as pressuposições necessárias e portanto pode ser utilizado. 
 
-![residuo](residuo.png)
+![residuo](./img/residuo.png)
 
 
 ```
@@ -169,7 +169,7 @@ __Predict__
 
 Podemos prever valores para tempos já observados afim de comparar com os valores reais e verificar se estamos com um modelo preciso e bem ajustado.
 
-![target](target.png)
+![target](./img/target.png)
 
 ```
 pred_dynamic = results.get_prediction(start=pd.to_datetime('1998-01-01'), dynamic=True, full_results=True)
@@ -205,7 +205,7 @@ print('The Root Mean Squared Error of our forecasts is {}'.format(round(rmse, 2)
 
 Constatado que o nosso modelo funciona, podemos finalmente fazer a predição para uma janela de tempo não conhecida.
 
-![forecast](forecast.png)
+![forecast](./img/forecast.png)
 
 ```
 # Get forecast 500 steps ahead in future
